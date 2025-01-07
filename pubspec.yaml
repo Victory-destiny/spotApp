@@ -39,6 +39,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   shared_preferences: ^2.3.4
+  http: ^1.2.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -63,6 +64,11 @@ flutter:
    - assets/images/logo.png
    - assets/images/target_icon.png
    - assets/images/vector.png
+   - assets/images/p1.png
+   - assets/images/p2.png
+   - assets/images/p3.png
+   - assets/images/play_icon.png
+   - assets/images/gift.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

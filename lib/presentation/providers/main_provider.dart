@@ -24,6 +24,11 @@ class MainProvider extends ChangeNotifier {
     _repo.setInt(key, value);
   }
 
+  //저장 StringList
+  Future<void> saveStringListData(String key, List<String> value) async {
+    _repo.setStringList(key, value);
+  }
+
   //불러오기 String
   Future<String?> loadStrongData(String key) async {
     final myData = _repo.getString(key); //Click
@@ -33,6 +38,12 @@ class MainProvider extends ChangeNotifier {
   //불러오기 int
   Future<int?> loadIntData(String key) async {
     final myData = _repo.getInt(key); //Click
+    return myData;
+  }
+
+  //불러오기 StringList
+  Future<List<String>?> loadStringListData(String key) async {
+    final myData = _repo.getStringList(key); //Click
     return myData;
   }
 

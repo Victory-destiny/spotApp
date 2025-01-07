@@ -12,9 +12,12 @@ class Screen1 extends StatefulWidget {
 
 class _Screen1State extends State<Screen1> {
   late TextEditingController nameController;
-  late TextEditingController ageController;
+  late TextEditingController ageController; //phoneNumber
+  late TextEditingController phoneNumberController;
+
   String name = '';
   String age = '';
+  String phoneNumber = '';
   bool isLoaded = false; // 데이터가 로드되었는지 추적하는 변수
 
   @override
@@ -28,20 +31,24 @@ class _Screen1State extends State<Screen1> {
   void dispose() {
     nameController.dispose();
     ageController.dispose();
+    phoneNumberController.dispose();
     super.dispose();
   }
 
   void initcont() async {
     final loadname = await mainProvider.loadStrongData('name');
     final loadage = await mainProvider.loadStrongData('age');
+    final loadphoneNumber= await mainProvider.loadStrongData('phoneNumber');
 
     setState(() {
       name = loadname ?? '';
       age = loadage ?? '';
+      phoneNumber = loadphoneNumber ?? '';
 
       // 데이터 로드 후에 TextEditingController 초기화
       nameController = TextEditingController(text: name);
       ageController = TextEditingController(text: age);
+      phoneNumberController = TextEditingController(text: phoneNumber);
 
       isLoaded = true; // 데이터가 로드되었으므로 화면 렌더링을 허용
     });
@@ -66,6 +73,10 @@ class _Screen1State extends State<Screen1> {
             _inputBox(w: uiHelper.mediaW(context: context, size: 0.36), t1: '나이',
                 align: TextAlign.right, cont: ageController, type: TextInputType.number,
                 t2: '0', ts: 20, cont1: 'age'),
+            SizedBox(height: 25,),
+            _inputBox(w: uiHelper.mediaW(context: context, size: 0.68), t1: '전화번호',
+                align: TextAlign.center, cont: phoneNumberController, type: TextInputType.number,
+                t2: '학생의 전화번호 입력', ts: 14, cont1: 'phoneNumber'),
           ],
         ),
       ),
